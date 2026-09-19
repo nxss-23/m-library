@@ -50,7 +50,7 @@ Ne pas reconstruire ces fonctions depuis zéro si elles peuvent être copiées/a
 ### Cours
 Supprimer les 6 cours de Nassim de la nouvelle instance et créer seulement :
 
-1. **Mathématiques / Analyse** — slug `mathematiques`
+1. **Mathématiques** — slug `mathematiques`
 2. **Microéconomie** — slug `microeconomie`
 3. **Chimie** — slug `chimie`
 4. **Statistiques** — slug `statistiques`

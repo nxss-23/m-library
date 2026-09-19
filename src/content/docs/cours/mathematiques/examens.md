@@ -1,6 +1,6 @@
 ---
 title: "Examens"
-course: "Mathématiques / Analyse"
+course: "Mathématiques"
 type: "examens"
 status: "structure"
 updated: "2026-09-19"

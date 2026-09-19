@@ -1,6 +1,6 @@
 ---
 title: "Synthèse"
-course: "Mathématiques / Analyse"
+course: "Mathématiques"
 type: "synthese"
 status: "structure"
 updated: "2026-09-19"

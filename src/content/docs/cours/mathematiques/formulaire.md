@@ -1,6 +1,6 @@
 ---
 title: "Formulaire"
-course: "Mathématiques / Analyse"
+course: "Mathématiques"
 type: "formulaire"
 status: "structure"
 updated: "2026-09-19"

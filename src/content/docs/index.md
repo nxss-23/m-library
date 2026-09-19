@@ -13,7 +13,7 @@ hero:
 ## Cours
 
 <ul class="course-list">
-  <li><a href="/cours/mathematiques/"><strong>Mathématiques / Analyse</strong></a></li>
+  <li><a href="/cours/mathematiques/"><strong>Mathématiques</strong></a></li>
   <li><a href="/cours/microeconomie/"><strong>Microéconomie</strong></a></li>
   <li><a href="/cours/chimie/"><strong>Chimie</strong></a></li>
   <li><a href="/cours/statistiques/"><strong>Statistiques</strong></a></li>

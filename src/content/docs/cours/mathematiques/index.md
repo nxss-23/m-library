@@ -1,6 +1,6 @@
 ---
-title: "Mathématiques / Analyse"
-description: "Page d’entrée du cours Mathématiques / Analyse."
+title: "Mathématiques"
+description: "Page d’entrée du cours Mathématiques."
 sidebar:
   hidden: true
   order: 1

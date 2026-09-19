@@ -19,14 +19,17 @@
 }
 
 .course-list > li > a {
-  display: block;
+  display: flex;
+  align-items: center;
   height: 100%;
+  min-height: 5.5rem;
   border: 1px solid var(--sl-color-gray-5);
   border-radius: 0.5rem;
   padding: 1rem;
   color: var(--sl-color-text);
   font-weight: 600;
   text-decoration: none;
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .course-list > li > a:hover {
@@ -190,6 +193,7 @@
   --sl-color-hairline-light: #e1e7f0;
   --sl-color-gray-5: #d6dfed;
 }
+:root[data-has-hero] { --sl-content-width: 62rem; }
 h1, .sl-markdown-content h2, .sl-markdown-content h3 {
   font-family: var(--__sl-font);
   letter-spacing: -0.025em;
@@ -224,10 +228,17 @@ site-search button[data-open-modal] { border-radius: .6rem; border-color: var(--
 }
 .course-list { padding: 0; }
 .sl-markdown-content .course-list > li { margin: 0; }
-.course-list > li > a { border-radius: .75rem; border-top: 3px solid var(--sl-color-accent); background: var(--sl-color-bg-sidebar); box-shadow: 0 4px 16px #10274b05; padding: 1.25rem; }
-.course-list strong { display: block; font-size: .8rem; letter-spacing: .05em; color: var(--sl-color-text-accent); }
+.course-list > li > a { border-radius: .8rem; border-top: 3px solid var(--sl-color-accent); background: var(--sl-color-bg-sidebar); box-shadow: 0 .35rem 1.25rem color-mix(in srgb, var(--sl-color-accent) 5%, transparent); padding: 1.35rem; }
+.course-list strong { display: block; font-size: clamp(1rem, 1.5vw, 1.1rem); line-height: 1.35; letter-spacing: -.01em; color: var(--sl-color-white); }
 .course-list span { display: block; margin-top: .3rem; font-weight: 500; }
-.course-list > li > a:hover { background: var(--sl-color-accent-low); }
+.course-list > li > a:hover, .course-list > li > a:focus-visible { border-color: var(--sl-color-accent); background: var(--sl-color-accent-low); color: var(--sl-color-accent-high); }
+.course-list:not(.document-list) { grid-template-columns: 1fr; gap: .9rem; margin-block: 1.25rem 0; }
+.course-list:not(.document-list) > li > a { min-height: 7rem; }
+.course-list:not(.document-list) + .sl-heading-wrapper { margin-top: clamp(2.75rem, 6vw, 4.5rem); }
+.sl-markdown-content > p { max-width: 68ch; }
+:root[data-has-hero] .hero { grid-template-columns: minmax(0, 1fr); padding-block: clamp(2.75rem, 7vw, 5rem) clamp(1.5rem, 3vw, 2.5rem); }
+:root[data-has-hero] .hero .stack { max-width: 48rem; gap: 1.35rem; }
+:root[data-has-hero] .hero .copy { gap: .75rem; }
 .sl-markdown-content table { display: block; border: 1px solid var(--sl-color-hairline); border-radius: .5rem; font-size: .9rem; }
 .sl-markdown-content th { background: var(--sl-color-bg-sidebar); }
 .sl-markdown-content :is(th, td) { padding: .65rem .85rem; border-color: var(--sl-color-hairline); }
@@ -337,7 +348,19 @@ site-search .search-container:has(.pagefind-ui__search-input:not(:placeholder-sh
 
 /* Neutral Mermaid fixtures retain their renderer; soften the canvas in dark mode. */
 :root[data-theme='dark'] .sl-markdown-content .mermaid { filter: invert(.88) hue-rotate(180deg); }
-@media (min-width: 72rem) {
-  .course-list:not(.document-list) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (hover: hover) {
+  .course-list > li > a:hover { transform: translateY(-2px); box-shadow: 0 .65rem 1.5rem color-mix(in srgb, var(--sl-color-accent) 10%, transparent); }
+}
+@media (min-width: 38rem) {
+  .course-list:not(.document-list) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .course-list:not(.document-list) > li { grid-column: span 2; }
+  .course-list:not(.document-list) > li:last-child { grid-column: 2 / span 2; }
+}
+@media (min-width: 60rem) {
+  .course-list:not(.document-list) { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.15rem; }
+  .course-list:not(.document-list) > li { grid-column: span 2; }
+  .course-list:not(.document-list) > li:nth-child(4) { grid-column: 2 / span 2; }
+  .course-list:not(.document-list) > li:nth-child(5) { grid-column: 4 / span 2; }
+  .course-list:not(.document-list) > li > a { min-height: 8.5rem; padding: 1.6rem; }
 }
 @media print { :root[data-theme] .sl-markdown-content .mermaid { filter: none; } }

@@ -7,7 +7,7 @@ import remarkMath from 'remark-math';
 import remarkMermaid from './src/plugins/remark-mermaid.mjs';
 
 const courseItems = [
-  { label: 'Mathématiques / Analyse', directory: 'mathematiques' },
+  { label: 'Mathématiques', directory: 'mathematiques' },
   { label: 'Microéconomie', directory: 'microeconomie' },
   { label: 'Chimie', directory: 'chimie' },
   { label: 'Statistiques', directory: 'statistiques' },

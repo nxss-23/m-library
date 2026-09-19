@@ -1,6 +1,6 @@
 ---
 title: "Exercices"
-course: "Mathématiques / Analyse"
+course: "Mathématiques"
 type: "exercices"
 status: "structure"
 updated: "2026-09-19"

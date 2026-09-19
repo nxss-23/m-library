@@ -208,8 +208,8 @@ try {
         true,
         'Le champ doit recevoir le focus à l’ouverture',
       );
-      await searchInput.fill('Mathématiques / Analyse');
-      const synthesisResult = page.getByRole('link', { name: 'Mathématiques / Analyse · Synthèse', exact: true });
+      await searchInput.fill('Mathématiques');
+      const synthesisResult = page.getByRole('link', { name: 'Mathématiques · Synthèse', exact: true });
       await synthesisResult.waitFor();
       assert.equal(await synthesisResult.isVisible(), true, 'Le nom du cours doit retrouver ses documents');
       assert.deepEqual(
@@ -231,7 +231,7 @@ try {
         );
         assert.equal(
           await page.locator('.pagefind-ui__result-link').first().textContent(),
-          'Mathématiques / Analyse · Synthèse',
+          'Mathématiques · Synthèse',
           'Le filtre Type doit restreindre les résultats',
         );
       }
@@ -254,7 +254,7 @@ try {
       assert.equal(await page.locator('site-search dialog').getAttribute('open'), null, 'Échap doit fermer la recherche');
     }
 
-    await page.getByRole('link', { name: 'Mathématiques / Analyse', exact: true }).click();
+    await page.getByRole('link', { name: 'Mathématiques', exact: true }).click();
     assert.equal(new URL(page.url()).pathname, '/cours/mathematiques/');
     await page.screenshot({ path: `test-results/direction-a/${viewport.name}-course.png`, fullPage: true });
     await page.getByRole('link', { name: 'Synthèse', exact: true }).first().click();

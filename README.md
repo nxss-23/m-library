@@ -22,7 +22,7 @@ Le futur site Cloudflare devra être :
 
 Il y a exactement 5 cours, sans code de cours :
 
-1. Mathématiques / Analyse
+1. Mathématiques
 2. Microéconomie
 3. Chimie
 4. Statistiques

@@ -34,7 +34,7 @@ Futur domaine Cloudflare Pages :
 
 Exactement 5 cours :
 
-- Mathématiques / Analyse
+- Mathématiques
 - Microéconomie
 - Chimie
 - Statistiques
@@ -122,7 +122,7 @@ Le mapping doit être calculé, pas 20 URLs hardcodées.
 
 La sidebar doit afficher simplement les noms des cours, sans code :
 
-- Mathématiques / Analyse
+- Mathématiques
 - Microéconomie
 - Chimie
 - Statistiques
