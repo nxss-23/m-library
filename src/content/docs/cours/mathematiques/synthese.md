@@ -10,4 +10,4 @@ sidebar:
 
 ## Synthèse du cours
 
-<!-- Ajouter ici la théorie utile, les définitions, les méthodes et les résultats importants. -->
+<!-- Ajouter ici la théorie utile, les définitions, les méthodes et les résultats importants. --> Test, salut les noob !
