@@ -1,0 +1,29 @@
+{
+  "name": "maryam-library",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:render": "node tests/render.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.0",
+    "@astrojs/starlight": "0.42.0",
+    "@fontsource-variable/montserrat": "5.2.8",
+    "astro": "7.3.1",
+    "katex": "0.18.7",
+    "mermaid": "11.17.2",
+    "rehype-katex": "7.0.1",
+    "remark-math": "6.0.0",
+    "unist-util-visit": "5.1.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "playwright": "1.63.0",
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "search.label": "Rechercher dans les cours",
+  "pagefind.search_label": "Rechercher un cours, une notion ou une formule…",
+  "pagefind.filters_label": "Filtrer les résultats",
+  "pagefind.zero_results": "Aucun contenu trouvé pour “[SEARCH_TERM]”. Essayez un autre terme ou le code du cours.",
+  "pagefind.one_result": "[COUNT] résultat pour “[SEARCH_TERM]”",
+  "pagefind.many_results": "[COUNT] résultats pour “[SEARCH_TERM]”",
+  "pagefind.searching": "Recherche de “[SEARCH_TERM]”…",
+  "pagefind.load_more": "Afficher plus de résultats",
+  "pagefind.clear_search": "Effacer"
+}

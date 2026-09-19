@@ -1,0 +1,27 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+---
+
+<script is:inline>
+  try {
+    if (localStorage.getItem('study-library-sidebar-collapsed') === 'true') {
+      document.documentElement.setAttribute('data-sidebar-collapsed', '');
+    }
+  } catch {
+    // La navigation reste utilisable si le stockage local est indisponible.
+  }
+</script>
+
+<Default {...Astro.props} />
+
+<script>
+  import mermaid from 'mermaid';
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: 'strict',
+    theme: 'neutral',
+  });
+
+  await mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+</script>

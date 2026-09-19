@@ -1,0 +1,145 @@
+content:
+  - name: mathematiques
+    label: "Mathématiques / Analyse"
+    type: group
+    items:
+      - name: mathematiques-synthese
+        label: "Synthèse"
+        type: file
+        path: src/content/docs/cours/mathematiques/synthese.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: mathematiques-exercices
+        label: "Exercices"
+        type: file
+        path: src/content/docs/cours/mathematiques/exercices.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: mathematiques-formulaire
+        label: "Formulaire"
+        type: file
+        path: src/content/docs/cours/mathematiques/formulaire.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: mathematiques-examens
+        label: "Examens"
+        type: file
+        path: src/content/docs/cours/mathematiques/examens.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+
+  - name: microeconomie
+    label: "Microéconomie"
+    type: group
+    items:
+      - name: microeconomie-synthese
+        label: "Synthèse"
+        type: file
+        path: src/content/docs/cours/microeconomie/synthese.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: microeconomie-exercices
+        label: "Exercices"
+        type: file
+        path: src/content/docs/cours/microeconomie/exercices.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: microeconomie-formulaire
+        label: "Formulaire"
+        type: file
+        path: src/content/docs/cours/microeconomie/formulaire.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: microeconomie-examens
+        label: "Examens"
+        type: file
+        path: src/content/docs/cours/microeconomie/examens.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+
+  - name: chimie
+    label: "Chimie"
+    type: group
+    items:
+      - name: chimie-synthese
+        label: "Synthèse"
+        type: file
+        path: src/content/docs/cours/chimie/synthese.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: chimie-exercices
+        label: "Exercices"
+        type: file
+        path: src/content/docs/cours/chimie/exercices.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: chimie-formulaire
+        label: "Formulaire"
+        type: file
+        path: src/content/docs/cours/chimie/formulaire.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: chimie-examens
+        label: "Examens"
+        type: file
+        path: src/content/docs/cours/chimie/examens.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+
+  - name: statistiques
+    label: "Statistiques"
+    type: group
+    items:
+      - name: statistiques-synthese
+        label: "Synthèse"
+        type: file
+        path: src/content/docs/cours/statistiques/synthese.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: statistiques-exercices
+        label: "Exercices"
+        type: file
+        path: src/content/docs/cours/statistiques/exercices.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: statistiques-formulaire
+        label: "Formulaire"
+        type: file
+        path: src/content/docs/cours/statistiques/formulaire.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: statistiques-examens
+        label: "Examens"
+        type: file
+        path: src/content/docs/cours/statistiques/examens.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+
+  - name: allemand
+    label: "Allemand"
+    type: group
+    items:
+      - name: allemand-synthese
+        label: "Synthèse"
+        type: file
+        path: src/content/docs/cours/allemand/synthese.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: allemand-exercices
+        label: "Exercices"
+        type: file
+        path: src/content/docs/cours/allemand/exercices.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: allemand-formulaire
+        label: "Formulaire"
+        type: file
+        path: src/content/docs/cours/allemand/formulaire.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }
+      - name: allemand-examens
+        label: "Examens"
+        type: file
+        path: src/content/docs/cours/allemand/examens.md
+        format: raw
+        operations: { create: false, rename: false, delete: false }

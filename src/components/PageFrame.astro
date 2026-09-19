@@ -1,0 +1,62 @@
+---
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import EditButton from './EditButton.astro';
+---
+
+<Default {...Astro.props}>
+  <slot name="header" slot="header" />
+  <slot name="sidebar" slot="sidebar" />
+  <slot />
+</Default>
+
+<EditButton />
+
+<button
+  type="button"
+  class="sidebar-toggle sidebar-collapse"
+  data-sidebar-collapse
+  aria-label="Masquer la barre latérale"
+  title="Masquer la barre latérale"
+>
+  <svg aria-hidden="true" viewBox="0 0 24 24">
+    <path d="M4 5h16v14H4zM9 5v14M15 9l-3 3 3 3" />
+  </svg>
+  <span>Réduire le menu</span>
+</button>
+
+<button
+  type="button"
+  class="sidebar-toggle sidebar-expand"
+  data-sidebar-expand
+  aria-label="Afficher la barre latérale"
+  title="Afficher la barre latérale"
+>
+  <svg aria-hidden="true" viewBox="0 0 24 24">
+    <path d="M4 5h16v14H4zM9 5v14M12 9l3 3-3 3" />
+  </svg>
+</button>
+
+<script>
+  const storageKey = 'study-library-sidebar-collapsed';
+  const root = document.documentElement;
+  const collapseButton = document.querySelector('[data-sidebar-collapse]');
+  const expandButton = document.querySelector('[data-sidebar-expand]');
+
+  collapseButton?.addEventListener('click', () => {
+    root.setAttribute('data-sidebar-collapsed', '');
+    try {
+      localStorage.setItem(storageKey, 'true');
+    } catch {
+      // La préférence reste active pour la page courante.
+    }
+  });
+
+  expandButton?.addEventListener('click', () => {
+    root.removeAttribute('data-sidebar-collapsed');
+    try {
+      localStorage.removeItem(storageKey);
+    } catch {
+      // La sidebar reste ouverte pour la page courante.
+    }
+  });
+</script>
