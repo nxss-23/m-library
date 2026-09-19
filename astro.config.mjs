@@ -27,6 +27,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Maryam Library',
+      site: 'https://maryam-library.pages.dev',
       logo: { src: './src/assets/book.svg', alt: '' },
       description: 'Bibliothèque personnelle de cours et de ressources de révision',
       locales: {
