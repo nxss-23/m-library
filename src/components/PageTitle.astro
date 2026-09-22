@@ -1,5 +1,11 @@
 ---
 import Default from '@astrojs/starlight/components/PageTitle.astro';
+import flowerSnoopy from '../../assets/IMG_7367-removebg-preview.png';
+import graduateSnoopy from '../../assets/IMG_7368-removebg-preview.png';
+import dinnerDogs from '../../assets/IMG_7370-removebg-preview.png';
+import courseSnoopys from '../../assets/IMG_8862-removebg-preview.png';
+import restingSnoopy from '../../assets/IMG_8864-removebg-preview.png';
+
 const { entry } = Astro.locals.starlightRoute;
 const data = entry.data as typeof entry.data & { course?: string; type?: string };
 const documentTypes: Record<string, string> = {
@@ -12,8 +18,26 @@ const course = data.course;
 const documentType = data.type ? documentTypes[data.type] : undefined;
 const isDocument = Boolean(course && documentType && /\/(synthese|exercices|formulaire|examens)$/.test(entry.id));
 const searchTitle = `${course} · ${documentType}`;
+const isCoursePage = /^cours\/[^/]+(?:\/index)?$/.test(entry.id);
+const pinkArtByType: Record<string, ImageMetadata> = {
+  synthese: flowerSnoopy,
+  exercices: dinnerDogs,
+  formulaire: restingSnoopy,
+  examens: graduateSnoopy,
+};
+const pinkArt = isCoursePage ? courseSnoopys : pinkArtByType[data.type || ''];
+const pinkArtKind = isCoursePage ? 'course' : data.type;
 ---
 <Default {...Astro.props} />
+{pinkArt && <img
+  class:list={['pink-title-sticker', pinkArtKind && `pink-title-sticker--${pinkArtKind}`]}
+  src={pinkArt.src}
+  width={pinkArt.width}
+  height={pinkArt.height}
+  alt=""
+  loading="lazy"
+  decoding="async"
+/>}
 {isDocument && <>
   <div
     class="document-context"

@@ -36,6 +36,9 @@ export default defineConfig({
       customCss: ['./src/styles/study-library.css'],
       components: {
         Head: './src/components/Head.astro',
+        ThemeProvider: './src/components/ThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
+        Hero: './src/components/Hero.astro',
         PageTitle: './src/components/PageTitle.astro',
         PageFrame: './src/components/PageFrame.astro',
       },

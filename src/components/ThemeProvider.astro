@@ -1,0 +1,29 @@
+---
+---
+
+<script is:inline>
+  window.StarlightThemeProvider = (() => {
+    const storedTheme = typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+    const preferredTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const theme = storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'pink' ? storedTheme : preferredTheme;
+    document.documentElement.dataset.theme = theme;
+    return {
+      updatePickers(theme = storedTheme === 'pink' || storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : 'auto') {
+        document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+          const select = picker.querySelector('select');
+          if (select) select.value = theme;
+          const template = document.querySelector('#theme-icons');
+          const icon = template?.content.querySelector(`.${theme}`);
+          if (icon) picker.querySelector('svg.label-icon')?.replaceChildren(...icon.cloneNode(true).childNodes);
+        });
+      },
+    };
+  })();
+</script>
+
+<template id="theme-icons">
+  <svg class="light" viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M3 12h2m14 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+  <svg class="dark" viewBox="0 0 24 24"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+  <svg class="pink" viewBox="0 0 24 24"><path d="m12 20-1.4-1.3C5.6 14.2 3 11.8 3 8.8A4.8 4.8 0 0 1 7.8 4c1.7 0 3.3.8 4.2 2.1A5.1 5.1 0 0 1 16.2 4 4.8 4.8 0 0 1 21 8.8c0 3-2.6 5.4-7.6 9.9L12 20Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg>
+  <svg class="auto" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM9 5v14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg>
+</template>

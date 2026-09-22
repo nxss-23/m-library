@@ -125,7 +125,7 @@ try {
       'TEST101 ne doit pas apparaître dans la navigation publique',
     );
 
-    for (const theme of ['light', 'dark']) {
+    for (const theme of ['light', 'dark', 'pink']) {
       await page.evaluate((theme) => {
         localStorage.setItem('starlight-theme', theme);
         document.documentElement.dataset.theme = theme;
