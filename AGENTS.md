@@ -144,3 +144,61 @@ Avant livraison :
 - `git diff --check`
 
 Ne lancer Playwright / tests lourds que si une régression le justifie.
+
+
+## Règles de rendu académique
+
+Les règles de syntaxe détaillées sont définies dans :
+
+`docs/03_markdown_rendering_rules.md`
+
+Avant toute modification d’un document académique, lire obligatoirement :
+
+1. le fichier ciblé ;
+2. `docs/01_content_conventions.md` ;
+3. `docs/03_markdown_rendering_rules.md`.
+
+Ne pas improviser une syntaxe différente si une convention existe déjà.
+
+### Invariants obligatoires
+
+- jamais de fence de code échappée comme `\`\`\`` ;
+- jamais de ligne contenant seulement `$` pour faire une formule display ;
+- utiliser `$...$` en inline et `$$...$$` en display ;
+- ne pas utiliser `\(...\)` ni `\[...\]` comme délimiteurs principaux ;
+- ne pas mettre de formule display multilignes dans un tableau ;
+- ne pas indenter les blocs `$$...$$` à l’intérieur d’une liste ;
+- conserver une ligne vide autour du contenu Markdown dans les blocs HTML ;
+- ne pas imbriquer les `academic-block` ;
+- ne pas placer les corrections d’exercices dans `<details>` ;
+- conserver les ancres et liens aller/retour des exercices ;
+- ne pas ajouter de HTML custom non documenté.
+
+En cas de doute, suivre exactement `docs/03_markdown_rendering_rules.md`.
+
+## Audit de rendu obligatoire
+
+Lorsqu’une demande concerne plusieurs documents ou une correction globale :
+
+1. auditer tous les vrais `.md` concernés, pas uniquement les fixtures ;
+2. rechercher les patterns interdits du guide ;
+3. corriger la syntaxe avant d’ajouter du nouveau contenu ;
+4. vérifier le rendu de chaque page modifiée en desktop et mobile ;
+5. vérifier qu’aucune page réelle ne provoque de débordement horizontal ;
+6. vérifier KaTeX, Mermaid, tableaux, code, ancres et blocs HTML lorsqu’ils sont présents.
+
+Un build réussi ne suffit pas à prouver que le rendu est correct.
+
+## Validation après modification académique
+
+Après toute modification de contenu académique, exécuter réellement :
+
+- `npm run build` ;
+- `npm run test:render` ;
+- `git diff --check`.
+
+Après une modification technique ou de configuration, exécuter aussi :
+
+- `npm run check`.
+
+Ne jamais annoncer une validation qui n’a pas été exécutée.
