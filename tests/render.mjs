@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { mkdir, readdir } from 'node:fs/promises';
+import { mkdir, readFile, readdir } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
@@ -26,12 +26,23 @@ const viewports = [
 ];
 
 for (const course of courses) {
-  const files = await readdir(join('src/content/docs/cours', course));
+  const courseDir = join('src/content/docs/cours', course);
+  const files = await readdir(courseDir);
   assert.deepEqual(
     files.sort(),
     ['index.md', ...courseDocuments].sort(),
     `${course} doit contenir une page d’entrée et exactement quatre documents académiques`,
   );
+
+  for (const file of courseDocuments) {
+    const source = await readFile(join(courseDir, file), 'utf8');
+    assert.equal(source.includes('\\`\\`\\`'), false, `${course}/${file}: fence de code échappée interdite`);
+    assert.equal(/(^|\\n)[ \\t]*\\$[ \\t]*(\\n|$)/.test(source), false, `${course}/${file}: ligne "$" isolée interdite`);
+    assert.equal(source.includes('\\\\('), false, `${course}/${file}: utiliser $...$ au lieu de \\(...\\)`);
+    assert.equal(/(^|\\n)[ \\t]*\\\\\[[ \\t]*(\\n|$)/.test(source), false, `${course}/${file}: utiliser $...$ au lieu de \\[...\\]`);
+    const displayMathCount = (source.match(/\\$\\$/g) || []).length;
+    assert.equal(displayMathCount % 2, 0, `${course}/${file}: nombre impair de délimiteurs $`);
+  }
 }
 
 const preview = spawn(
@@ -84,8 +95,10 @@ try {
 
     const realPages = [
       '',
-      'cours/mathematiques',
-      ...courseDocuments.map((file) => `cours/mathematiques/${file.slice(0, -3)}`),
+      ...courses.flatMap((course) => [
+        `cours/${course}`,
+        ...courseDocuments.map((file) => `cours/${course}/${file.slice(0, -3)}`),
+      ]),
     ];
     for (const slug of realPages) {
       const response = await page.goto(`${origin}/${slug}`, { waitUntil: 'networkidle' });
